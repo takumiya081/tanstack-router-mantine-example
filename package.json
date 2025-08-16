@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check",
+    "lint:fix": "biome check --write --unsafe"
   },
   "dependencies": {
     "@mantine/core": "8.2.4",
@@ -16,9 +18,11 @@
     "react-dom": "19.1.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.2.0",
     "@types/react": "19.1.10",
     "@types/react-dom": "19.1.7",
     "@vitejs/plugin-react": "5.0.0",
+    "lefthook": "1.12.3",
     "postcss": "8.5.6",
     "postcss-preset-mantine": "1.18.0",
     "postcss-simple-vars": "7.0.1",

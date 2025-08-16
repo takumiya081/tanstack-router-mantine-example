@@ -1,0 +1,150 @@
+{
+  "$schema": "https://biomejs.dev/schemas/latest/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true,
+    "defaultBranch": "main"
+  },
+  "files": {
+    "ignoreUnknown": true
+  },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": true,
+    "bracketSameLine": false,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 100,
+    "attributePosition": "auto",
+    "bracketSpacing": true
+  },
+  "linter": {
+    "enabled": true,
+    "domains": {
+      "project": "all",
+      "react": "all",
+      "test": "all"
+    },
+    "rules": {
+      "recommended": true,
+      "complexity": {
+        "noUselessStringConcat": "error"
+      },
+      "correctness": {
+        "noNestedComponentDefinitions": "error",
+        "noReactPropAssignments": "error",
+        "noUndeclaredDependencies": "error",
+        "noUndeclaredVariables": "error",
+        "useExhaustiveDependencies": "error",
+        "useHookAtTopLevel": "error",
+        "useImportExtensions": "off",
+        "useJsxKeyInIterable": "error",
+        "useSingleJsDocAsterisk": "error"
+      },
+      "nursery": {
+        "noImportCycles": "error",
+        "noMisusedPromises": "warn",
+        "noUnnecessaryConditions": "error",
+        "useReactFunctionComponents": "error",
+        "useSortedClasses": "error"
+      },
+      "performance": {
+        "noAwaitInLoops": "error"
+      },
+      "style": {
+        "noDefaultExport": "error",
+        "noEnum": "error",
+        "noNamespace": "error",
+        "noNegationElse": "error",
+        "noNestedTernary": "error",
+        "noParameterAssign": "error",
+        "noShoutyConstants": "error",
+        "noUselessElse": "error",
+        "useAsConstAssertion": "error",
+        "useBlockStatements": "error",
+        "useCollapsedElseIf": "error",
+        "useCollapsedIf": "error",
+        "useConsistentCurlyBraces": "error",
+        "useConsistentObjectDefinitions": {
+          "level": "error",
+          "options": {
+            "syntax": "shorthand"
+          }
+        },
+        "useDefaultParameterLast": "error",
+        "useExplicitLengthCheck": "error",
+        "useFilenamingConvention": {
+          "level": "error",
+          "options": {
+            "filenameCases": ["kebab-case", "export"],
+            "requireAscii": true,
+            "strictCase": false
+          }
+        },
+        "useFragmentSyntax": "error",
+        "useNamingConvention": {
+          "level": "error",
+          "options": {
+            "conventions": [
+              {
+                "formats": ["camelCase", "PascalCase"],
+                "selector": {
+                  "kind": "function"
+                }
+              },
+              {
+                "formats": ["PascalCase"],
+                "selector": {
+                  "kind": "interface"
+                }
+              },
+              {
+                "formats": ["PascalCase"],
+                "selector": {
+                  "kind": "typeAlias"
+                }
+              },
+              {
+                "formats": ["camelCase", "PascalCase"],
+                "selector": {
+                  "kind": "variable"
+                }
+              }
+            ],
+            "strictCase": false
+          }
+        },
+        "useNumericSeparators": "warn",
+        "useSelfClosingElements": "error",
+        "useThrowNewError": "error"
+      },
+      "suspicious": {
+        "noConsole": "error",
+        "noEmptyBlockStatements": "error",
+        "noEvolvingTypes": "error",
+        "noFocusedTests": "error",
+        "noMisplacedAssertion": "error",
+        "noShadowRestrictedNames": "error",
+        "noSkippedTests": "error",
+        "noUnassignedVariables": "error",
+        "noVar": "error",
+        "useAwait": "error"
+      }
+    }
+  },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single"
+    }
+  }
+}
