@@ -1,6 +1,8 @@
-import { Button, Flex } from '@mantine/core';
-import { createRootRoute, Link, Outlet } from '@tanstack/react-router';
+import { Alert, Button, Flex } from '@mantine/core';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { createRootRouteWithContext, Link, Outlet } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
+import type { RouterContext } from '../libs/tanstack-router';
 import { Route as PathlessRouteA } from './_pathless/_nested_layout/route-a';
 import { Route as AboutRoute } from './about';
 
@@ -36,9 +38,11 @@ const Root = () => (
       <Outlet />
     </RootDocument>
     <TanStackRouterDevtools />
+    <ReactQueryDevtools />
   </>
 );
 
-export const Route = createRootRoute({
+export const Route = createRootRouteWithContext<RouterContext>()({
   component: Root,
+  notFoundComponent: () => <Alert color="red">Global Not Found</Alert>,
 });
