@@ -7,6 +7,7 @@
     "defaultBranch": "main"
   },
   "files": {
+    "includes": ["**", "!**/routeTree.gen.ts"],
     "ignoreUnknown": true
   },
   "formatter": {
