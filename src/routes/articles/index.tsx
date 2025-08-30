@@ -3,7 +3,7 @@ import { createFileRoute } from '@tanstack/react-router';
 
 const RouteComponent = () => {
   return (
-    <Box p={2} bg="blue">
+    <Box bg="blue" p={2}>
       select article
     </Box>
   );

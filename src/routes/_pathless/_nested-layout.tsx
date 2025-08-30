@@ -1,6 +1,6 @@
 import { createFileRoute, Outlet } from '@tanstack/react-router';
 
-export const Route = createFileRoute('/_pathless/_nested_layout')({
+export const Route = createFileRoute('/_pathless/_nested-layout')({
   component: RouteComponent,
 });
 

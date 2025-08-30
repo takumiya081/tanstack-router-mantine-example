@@ -8,21 +8,21 @@ import { Route as ArticlesArticleIdRoute } from '../../../routes/articles/$artic
 const ArticleCard = ({ article }: { article: Article }) => {
   return (
     <Card
-      shadow="sm"
-      padding="xl"
       component={Link}
-      to={ArticlesArticleIdRoute.to}
+      padding="xl"
       params={{
         // @ts-expect-error - TODO: fix this
         articleId: article.id.toString(),
       }}
+      shadow="sm"
+      to={ArticlesArticleIdRoute.to}
     >
       <Card.Section>
-        <Text fw={500} size="lg" mt="md">
+        <Text fw={500} mt="md" size="lg">
           {article.title}
         </Text>
 
-        <Text mt="xs" c="dimmed" size="sm" truncate="end">
+        <Text c="dimmed" mt="xs" size="sm" truncate="end">
           {article.body}
         </Text>
       </Card.Section>
@@ -37,7 +37,7 @@ export const Articles = () => {
     <Box>
       <Stack gap="md">
         {data.map((article) => (
-          <ArticleCard key={article.id} article={article} />
+          <ArticleCard article={article} key={article.id} />
         ))}
         <ArticleCard
           article={{

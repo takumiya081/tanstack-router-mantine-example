@@ -1,7 +1,7 @@
 import { queryOptions } from '@tanstack/react-query';
 import { type Article, store } from '../data';
 
-export function fetchArticlesList(): Promise<Article[]> {
+function fetchArticlesList(): Promise<Article[]> {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(store.articles);

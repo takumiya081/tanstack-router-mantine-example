@@ -5,7 +5,7 @@ import { articlesListQueryOptions } from '../../libs/tanstack-query';
 
 const RouteComponent = () => {
   return (
-    <Box p={2} bg="gray.1">
+    <Box bg="gray.1" p={2}>
       <h5>this is articles common layout</h5>
       <Container>
         <Grid gutter="md">

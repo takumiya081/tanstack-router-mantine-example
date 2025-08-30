@@ -40,20 +40,20 @@ export const ArticleSingle = ({ articleId }: Props) => {
       {isEditing ? (
         <Stack gap="md">
           <div>
-            <Button type="button" onClick={handleClickCancel} color="gray">
+            <Button color="gray" onClick={handleClickCancel} type="button">
               cancel
             </Button>
           </div>
           <ArticleEditForm
             article={data}
-            onSuccess={handleSuccess}
             onMutateOptimistic={handleSuccess}
+            onSuccess={handleSuccess}
           />
         </Stack>
       ) : (
         <Stack gap="md">
           <div>
-            <Button type="button" onClick={handleClickEdit}>
+            <Button onClick={handleClickEdit} type="button">
               edit
             </Button>
           </div>

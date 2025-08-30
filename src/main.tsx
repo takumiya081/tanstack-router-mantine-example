@@ -1,37 +1,24 @@
 import { MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { createRouter, RouterProvider } from '@tanstack/react-router';
+import { QueryClientProvider } from '@tanstack/react-query';
+import { RouterProvider } from '@tanstack/react-router';
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
-// Import the generated route tree
-import { routeTree } from './routeTree.gen';
-import { theme } from './styles/theme';
 
 import '@mantine/core/styles.css';
 import '@mantine/notifications/styles.css';
 
-const queryClient = new QueryClient();
+import { AuthUserProvider, useAuthUserStore } from './features/auth/contexts/auth-user-provider';
+import { queryClient } from './libs/tanstack-query/query-client';
+import { router } from './libs/tanstack-router/route';
+// Import the generated route tree
+import { theme } from './styles/theme';
 
-// Create a new router instance
-const router = createRouter({
-  routeTree,
-  scrollRestoration: true,
-  defaultPreload: 'intent',
-  // Since we're using React Query, we don't want loader calls to ever be stale
-  // This will ensure that the loader is always called when the route is preloaded or visited
-  defaultPreloadStaleTime: 0,
-  context: {
-    queryClient,
-  },
-});
+const RouteProviderWithContext = () => {
+  const authStore = useAuthUserStore();
 
-// Register the router instance for type safety
-declare module '@tanstack/react-router' {
-  interface Register {
-    router: typeof router;
-  }
-}
+  return <RouterProvider context={{ auth: authStore }} router={router} />;
+};
 
 // Render the app
 // biome-ignore lint/style/noNonNullAssertion: root
@@ -42,7 +29,13 @@ if (!rootElement.innerHTML) {
     <StrictMode>
       <MantineProvider theme={theme}>
         <QueryClientProvider client={queryClient}>
-          <RouterProvider router={router} />
+          <AuthUserProvider
+            onAuthUserChange={() => {
+              router.invalidate();
+            }}
+          >
+            <RouteProviderWithContext />
+          </AuthUserProvider>
           <Notifications />
         </QueryClientProvider>
       </MantineProvider>

@@ -2,7 +2,7 @@ import { queryOptions } from '@tanstack/react-query';
 import { type Article, store } from '../data';
 import { ApiError, NotFoundError } from '../errors';
 
-export const fetchArticlesSingle = (id: number): Promise<Article> => {
+const fetchArticlesSingle = (id: number): Promise<Article> => {
   const article = store.articles.find((article) => article.id === id);
 
   if (id === -100) {

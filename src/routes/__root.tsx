@@ -2,8 +2,8 @@ import { Alert, Button, Flex } from '@mantine/core';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { createRootRouteWithContext, Link, Outlet } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
-import type { RouterContext } from '../libs/tanstack-router';
-import { Route as PathlessRouteA } from './_pathless/_nested_layout/route-a';
+import type { RouterContext } from '../libs/tanstack-router/router-context';
+import { Route as PathlessRouteA } from './_pathless/_nested-layout/route-a';
 import { Route as AboutRoute } from './about';
 
 const RootDocument = ({ children }: { children: React.ReactNode }) => {
@@ -24,6 +24,12 @@ const RootDocument = ({ children }: { children: React.ReactNode }) => {
         </Button>
         <Button component={Link} to={PathlessRouteA.to}>
           _pathless
+        </Button>
+        <Button color="pink" component={Link} to="/sign-in" variant="outline">
+          Sign In
+        </Button>
+        <Button color="green" component={Link} to="/profile" variant="outline">
+          profile
         </Button>
       </Flex>
       <hr />

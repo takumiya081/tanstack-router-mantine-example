@@ -139,7 +139,9 @@
     "enabled": true,
     "actions": {
       "source": {
-        "organizeImports": "on"
+        "organizeImports": "on",
+        "useSortedAttributes": "on",
+        "useSortedProperties": "on"
       }
     }
   },
@@ -147,5 +149,18 @@
     "formatter": {
       "quoteStyle": "single"
     }
-  }
+  },
+  "overrides": [
+    {
+      "includes": ["src/routes/**/*.ts", "src/routes/**/*.tsx"],
+      "linter": {
+        "rules": {
+          // このディレクトリ配下では、ファイル命名規則のチェックを無効にします
+          "style": {
+            "useFilenamingConvention": "off"
+          }
+        }
+      }
+    }
+  ]
 }

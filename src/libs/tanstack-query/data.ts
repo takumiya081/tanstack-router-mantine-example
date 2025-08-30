@@ -1,3 +1,5 @@
+import { type AuthUser, authUserTypeEnum } from '../../features/auth/types/auth-user';
+
 export interface Article {
   id: number;
   title: string;
@@ -6,9 +8,10 @@ export interface Article {
 
 interface Store {
   articles: Article[];
+  authUsers: AuthUser[];
 }
 
-export const store = {
+export const store: Store = {
   articles: [
     {
       id: 1,
@@ -36,4 +39,24 @@ export const store = {
       body: 'Body 5',
     },
   ],
-} satisfies Store;
+  authUsers: [
+    {
+      id: 'admin1',
+      name: 'admin user name',
+      email: 'admin@example.com',
+      type: authUserTypeEnum.admin,
+    },
+    {
+      id: 'normal1',
+      name: 'normal1 user name',
+      email: 'normal1@example.com',
+      type: authUserTypeEnum.normal,
+    },
+    {
+      id: 'normal2',
+      name: 'normal2 user name',
+      email: 'normal2@example.com',
+      type: authUserTypeEnum.normal,
+    },
+  ],
+};

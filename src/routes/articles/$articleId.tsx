@@ -1,10 +1,5 @@
 import { Alert, Box, Skeleton, Stack } from '@mantine/core';
-import {
-  createFileRoute,
-  type ErrorComponentProps,
-  notFound,
-  PathParamError,
-} from '@tanstack/react-router';
+import { createFileRoute, type ErrorComponentProps, PathParamError } from '@tanstack/react-router';
 import { zodValidator } from '@tanstack/zod-adapter';
 import { z } from 'zod';
 import { ArticleSingle } from '../../features/articles/components/article-single';

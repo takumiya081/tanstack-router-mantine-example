@@ -1,4 +1,4 @@
-import { Box, Button, Stack, Textarea, TextInput } from '@mantine/core';
+import { Button, Stack, Textarea, TextInput } from '@mantine/core';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import type { Article } from '../../../../libs/tanstack-query/data';
@@ -48,9 +48,9 @@ export const NormalForm = ({ article, onSuccess }: Props) => {
   return (
     <form onSubmit={handleSubmit}>
       <Stack gap="md">
-        <TextInput label="Title" value={title} onChange={handleTitleChange} />
-        <Textarea label="Body" value={body} onChange={handleBodyChange} />
-        <Button type="submit" loading={mutation.isPending}>
+        <TextInput label="Title" onChange={handleTitleChange} value={title} />
+        <Textarea label="Body" onChange={handleBodyChange} value={body} />
+        <Button loading={mutation.isPending} type="submit">
           Submit
         </Button>
       </Stack>
