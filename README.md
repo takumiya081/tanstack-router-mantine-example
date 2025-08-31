@@ -1,5 +1,8 @@
-# Mantine Vite template
+# Tanstack Router + Tanstack Query + Authentication example
 
-Get started with the template by clicking `Use this template` button on the top of the page.
 
-[Documentation](https://mantine.dev/guides/vite/)
+this is example repository
+
+- Tanstack Router
+- Tanstack Query
+- Authentication
