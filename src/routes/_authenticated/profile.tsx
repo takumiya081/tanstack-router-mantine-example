@@ -8,4 +8,17 @@ const RouteComponent = () => {
 
 export const Route = createFileRoute('/_authenticated/profile')({
   component: RouteComponent,
+  loader: async ({ context }) => {
+    const user = await context.auth.actions.ensureAuthUser();
+    return {
+      userName: user?.name,
+    };
+  },
+  head: ({ loaderData }) => ({
+    meta: [
+      {
+        title: `Profile of ${loaderData?.userName}`,
+      },
+    ],
+  }),
 });

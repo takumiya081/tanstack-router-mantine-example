@@ -1,6 +1,12 @@
 import { Alert, Button, Flex } from '@mantine/core';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { createRootRouteWithContext, Link, Outlet } from '@tanstack/react-router';
+import {
+  createRootRouteWithContext,
+  HeadContent,
+  Link,
+  Outlet,
+  Scripts,
+} from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 import type { RouterContext } from '../libs/tanstack-router/router-context';
 import { Route as PathlessRouteA } from './_pathless/_nested-layout/route-a';
@@ -40,9 +46,11 @@ const RootDocument = ({ children }: { children: React.ReactNode }) => {
 
 const Root = () => (
   <>
+    <HeadContent />
     <RootDocument>
       <Outlet />
     </RootDocument>
+    <Scripts />
     <TanStackRouterDevtools />
     <ReactQueryDevtools />
   </>
@@ -51,4 +59,22 @@ const Root = () => (
 export const Route = createRootRouteWithContext<RouterContext>()({
   component: Root,
   notFoundComponent: () => <Alert color="red">Global Not Found</Alert>,
+  head: () => ({
+    meta: [
+      {
+        name: 'description',
+        content: 'My App is a web application',
+      },
+      {
+        title: 'My App',
+      },
+    ],
+    links: [
+      {
+        rel: 'icon',
+        href: '/favicon.svg',
+        type: 'image/svg+xml',
+      },
+    ],
+  }),
 });
